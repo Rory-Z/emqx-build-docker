@@ -12,8 +12,8 @@ docker run -it --rm \
 	${IMAGE_NAME} \
 	sh -c "git clone -b ${EMQX_VERSION} https://github.com/emqx/emqx-rel /emqx && cd /emqx  && make && cp -r  /emqx/_rel/emqx ${VOLUMN_PATH}"
 
-docker rmi ${IMAGE_NAME}
-
 docker build -t emqx:${EMQX_VERSION} ./emqx-docker
 
 docker save -o emqx-docker-${EMQX_VERSION}.zip emqx:${EMQX_VERSION}
+
+docker rmi ${IMAGE_NAME}
